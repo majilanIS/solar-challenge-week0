@@ -1,9 +1,4 @@
 # Solar Challenge Week 0
 
-## 📦 Environment Setup
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/<your-username>/solar-challenge-week0.git
-   cd solar-challenge-week0
-   ```
+This branch contains the initial setup instructions and environment configuration for the Solar Challenge Week 0 project.
+It ensures that all dependencies are properly installed and the workspace is ready for data analysis and exploration.
