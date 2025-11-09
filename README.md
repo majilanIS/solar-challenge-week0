@@ -1,9 +1,4 @@
 # Solar Challenge Week 0
 
-## 📦 Environment Setup
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/<your-username>/solar-challenge-week0.git
-   cd solar-challenge-week0
-   ```
+This branch focuses on performing data profiling, cleaning, and exploratory data analysis (EDA) for the Benin solar dataset.
+It aims to understand the dataset’s structure, detect missing or inconsistent values, and explore key trends in solar irradiance, temperature, and other features.
