@@ -1,3 +1,5 @@
+```
+# this is common for the three countries
 <!-- ** 
 Import main libraries:
 pandas for data handling, numpy for calculations, matplotlib/seaborn for visualizations, and scipy.stats for statistical tests and outlier detection.
@@ -44,3 +46,4 @@ Study how humidity (RH) affects temperature (Tamb) and irradiance (GHI) using sc
 <!-- ** 
 Create a bubble chart (GHI vs Tamb with bubble size = RH or BP) to show interaction between variables.
 ** -->
+```
