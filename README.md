@@ -4,6 +4,7 @@
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/<your-username>/solar-challenge-week0.git
+   git clone https://github.com/majilanIS/solar-challenge-week0.git
    cd solar-challenge-week0
    ```
+

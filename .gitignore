@@ -1,5 +1,6 @@
 venv/
 .venv/
+.myenv/
 ENV/
 env/
 __pycache__/
@@ -9,7 +10,7 @@ data/
 data/*.csv
 raw/*.csv
 
-
+.streamlit/
 
 
 
