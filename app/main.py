@@ -181,15 +181,42 @@ else:
 
         if temp_col and (selected_chart == "Bubble: GHI vs Temp" or selected_chart == "All"):
             st.subheader("🫧 Bubble Chart: GHI vs Temperature")
+            # Prepare size values for the bubble chart. Plotly requires non-negative sizes.
+            # If GHI has negative values (or values <= 0), shift them to be positive while
+            # preserving relative magnitudes.
+            # Prepare size values for the bubble chart. Plotly requires non-negative sizes.
+            # Create a new column in plot_sample with normalized positive sizes to avoid
+            # passing raw negative values directly to Plotly.
+            size_col_name = "__bubble_size__"
+            try:
+                size_vals = plot_sample[ghi_col].astype(float).copy()
+            except Exception:
+                size_vals = None
+
+            if size_vals is None or size_vals.dropna().empty:
+                # fallback to a small constant size
+                plot_sample[size_col_name] = 6
+            else:
+                minv = float(size_vals.min())
+                if minv <= 0:
+                    norm = (size_vals - minv) + 1.0
+                else:
+                    norm = size_vals
+                # scale to a visually reasonable range (e.g., [4, 30])
+                # normalize to 0..1 then scale
+                norm = (norm - norm.min()) / (norm.max() - norm.min() + 1e-9)
+                plot_sample[size_col_name] = (norm * 26) + 4
+
             fig_bubble = px.scatter(
                 plot_sample,
                 x=temp_col,
                 y=ghi_col,
-                size=ghi_col,
+                size=size_col_name,
                 color=region_col if region_col else ghi_col,
                 color_continuous_scale="Viridis",
                 title="GHI vs Temperature (Size = GHI)",
-                hover_data=[region_col] if region_col else None
+                hover_data=[region_col] if region_col else None,
+                size_max=30,
             )
             st.plotly_chart(fig_bubble, width='stretch')
 
